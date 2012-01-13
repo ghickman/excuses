@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+
+    <title>{% block title %}Excuses{% endblock title %}</title>
+
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{{ STATIC_URL }}styles/screen.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Excuses</h1>
+        </header>
+        <div class="content">{% block page %}{% endblock %}</div>
+        <footer>
+        </footer>
+    </div>
+</body>
+</html>
+
