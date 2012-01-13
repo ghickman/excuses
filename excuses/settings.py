@@ -31,10 +31,10 @@ USE_L10N = True
 MEDIA_ROOT = join(DIRNAME, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = join(DIRNAME, 'static')
+STATIC_ROOT = join(DIRNAME, 'static_media')
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-STATICFILES_DIRS = ()#join(DIRNAME, 'static'),)
+STATICFILES_DIRS = (join(DIRNAME, 'static'),)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
