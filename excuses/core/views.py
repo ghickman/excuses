@@ -4,6 +4,6 @@ from excuses.core.models import Excuse
 
 
 class Home(DetailView):
-    def getobject(self, queryset=None):
-        return Excuse()
+    def get_object(self, queryset=None):
+        return Excuse.objects.order_by('?')[0]
 
