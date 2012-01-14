@@ -11,19 +11,15 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': join(DIRNAME, 'db.sqlite'),                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django_mongodb_engine',
+        'NAME': 'excuses',
     }
 }
 
 TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-gb'
 
-SITE_ID = 1
+SITE_ID = u'4f114eb3de8b650cff00001d'
 
 USE_I18N = True
 USE_L10N = True
@@ -75,6 +71,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'django_extensions',
+    'django_mongodb_engine',
     'gunicorn',
 
     'core',
