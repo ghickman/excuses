@@ -1,7 +1,11 @@
-h2, span {
+h1, h2, span {
     display: inline-block;
     margin-bottom: 150px;
     margin-top: 150px;
+}
+
+h1 {
+    margin-left: 100px;
 }
 
 h2 {
