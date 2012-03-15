@@ -11,8 +11,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_mongodb_engine',
-        'NAME': 'excuses',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite',
     }
 }
 
@@ -70,8 +70,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    'django_extensions',
-    'django_mongodb_engine',
     'gunicorn',
 
     'core',
