@@ -20,7 +20,7 @@ DATABASES = {
 TIME_ZONE = 'Europe/London'
 LANGUAGE_CODE = 'en-gb'
 
-SITE_ID = u'4f114eb3de8b650cff00001d'
+SITE_ID = 1
 
 USE_I18N = True
 USE_L10N = True
