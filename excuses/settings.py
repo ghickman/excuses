@@ -1,4 +1,5 @@
 # Django settings for excuses project.
+from os import environ
 from os.path import abspath, dirname, join
 
 DIRNAME = abspath(dirname(__file__))
@@ -24,18 +25,24 @@ SITE_ID = u'4f114eb3de8b650cff00001d'
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = join(DIRNAME, 'media')
-MEDIA_URL = '/media/'
+# S3 Backend
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = environ['AWS_STORAGE_BUCKET_NAME']
 
-STATIC_ROOT = join(DIRNAME, 'static_media')
-STATIC_URL = '/static/'
+# Static Media
+MEDIA_ROOT = 'client_media'
+MEDIA_URL = '/media/'
+STATIC_ROOT = 'static_media'
+STATIC_URL = 'http://{0}.s3.amazonaws.com/'.format(AWS_STORAGE_BUCKET_NAME)
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 STATICFILES_DIRS = (join(DIRNAME, 'static'),)
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'x8ami0$vzeyb-#$u*5$*7p8e_y*=_bjbj(2gcl^d)8ky=$t_7-'
@@ -71,6 +78,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'gunicorn',
+    'storages',
 
     'core',
 )
